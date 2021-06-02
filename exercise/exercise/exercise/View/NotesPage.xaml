@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="exercise.View.NotesPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry Placeholder="Write a note" Text="{Binding TheNote}"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                
+                <Button Text="Save" Command="{Binding Save}" Grid.Row="0" Grid.Column="0"/>
+                <Button Text="Delete" Command="{Binding Delete}" Grid.Column="1"/>
+            </Grid>
+            <CollectionView ItemsSource="{Binding Notes}">
+                
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding .}" TextColor="Blue"/>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

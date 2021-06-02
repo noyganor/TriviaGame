@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TriviaXamarinApp.Views.Game"
+             Title="Game"
+             x:Name="thePage">
+    <ContentPage.ToolbarItems>
+    <ToolbarItem Order="Secondary"
+                     Text="login"
+                     Priority="0"
+                     Command="{Binding LoginPageGame}" />
+        <ToolbarItem Order="Secondary"
+                     Text="post a question"
+                     Priority="1"
+                     Command="{Binding PostQuestionPageGame}" IsEnabled="False"/>
+        <ToolbarItem Order="Secondary"
+                     Text="my questions"
+                     Priority="2"
+                     Command="{Binding MyQuestionsPageGame}" IsEnabled="False"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="{Binding Question}" HorizontalOptions="CenterAndExpand" />
+            
+            <!--<Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Button Text="{Binding Answers[0]}" Command="{Binding AnswerButtonClick}" CommandParameter="0" Grid.Row="0" Grid.Column="0"/>
+                <Button Text="{Binding Answers[1]}" Command="{Binding AnswerButtonClick}" CommandParameter="1" Grid.Row="0" Grid.Column="1"/>
+                <Button Text="{Binding Answers[2]}" Command="{Binding AnswerButtonClick}" CommandParameter="2" Grid.Row="1" Grid.Column="0"/>
+                <Button Text="{Binding Answers[3]}" Command="{Binding AnswerButtonClick}" CommandParameter="3" Grid.Row="1" Grid.Column="1"/>
+            </Grid>-->
+
+            <CollectionView ItemsSource="{Binding AnswersColors}"
+                SelectionMode="None" ItemsLayout="VerticalGrid, 2">
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Button Text="{Binding Answer}" BackgroundColor="{Binding Color}" Command="{Binding Source={x:Reference thePage}, Path=BindingContext.AnswerButtonClick}" CommandParameter="{Binding Answer}" Grid.Row="0" Grid.Column="0"/>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Button Text="Next Question" Command="{Binding NextQButton}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

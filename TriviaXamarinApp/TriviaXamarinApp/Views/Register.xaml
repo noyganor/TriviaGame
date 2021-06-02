@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TriviaXamarinApp.Views.Register"
+             Title="Register">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry Placeholder="Nickname" Text="{Binding Nickname}"/>
+            <Entry Placeholder="Email" Text="{Binding Email}"/>
+            <Entry Placeholder="Password" Text="{Binding Password}"/>
+            <Button Text="Register" Command="{Binding RegisterButtonC}"/>
+            <Label Text="{Binding Message}" TextColor="Red"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

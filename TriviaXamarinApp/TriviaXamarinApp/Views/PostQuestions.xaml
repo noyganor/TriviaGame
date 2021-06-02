@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TriviaXamarinApp.Views.PostQuestions">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Add a question" />
+            <Entry Placeholder="The Question" Text="{Binding QuestionText}"/>
+            <Entry Placeholder="wrong answer" />
+            <Entry Placeholder="wrong answer" />
+            <Entry Placeholder="wrong answer" />
+            <Entry Placeholder="correct answer" />
+            <Button Text="Add" Command="{Binding AddButton}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
